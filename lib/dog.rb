@@ -74,18 +74,9 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
-    sql = <<-SQL
-    SELECT *
-    FROM dogs
-    WHERE dogs.name = ?, dogs.breed = ?
-    SQL
+    self.all.select do |dog|
 
-    if DB[:conn].execute(sql, name, breed).empty?
-      self.create(name: name, breed: breed)
-    else
-      DB[:conn].execute(sql, name, breed).map do |row|
-
-      end
+    end
   end
 
 end
