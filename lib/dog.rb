@@ -72,7 +72,7 @@ class Dog
     FROM dogs
     WHERE dogs.name = ?, dogs.breed = ?
     SQL
-    
+
     binding.pry
     search = DB[:conn].execute(sql, name, breed)
     if search.empty?
