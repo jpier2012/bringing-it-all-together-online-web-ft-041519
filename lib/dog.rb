@@ -7,11 +7,6 @@ class Dog
     @name = name
     @breed = breed
     @id = id
-    @@all << self
-  end
-
-  def self.all
-    @@all
   end
 
   def self.create_table
@@ -74,6 +69,7 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
+    sql 
 
     if self.all.find { |dog| dog.name == name && dog.breed = breed }.nil?
       self.create(name: name, breed: breed)
