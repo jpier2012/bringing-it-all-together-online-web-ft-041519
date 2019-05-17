@@ -1,4 +1,6 @@
 class Dog
+  @@all = []
+  
   attr_accessor :name, :breed, :id
 
   def initialize(name:, breed:, id: nil)
@@ -73,7 +75,12 @@ class Dog
     WHERE dogs.name = ?, dogs.breed = ?
     SQL
 
-    DB[:conn].execute(sql, name, breed)[0]
+    if DB[:conn].execute(sql, name, breed).empty?
+      self.create(name: name, breed: breed)
+    else
+      DB[:conn].execute(sql, name, breed).map do |row|
+        
+      end
   end
 
 end
