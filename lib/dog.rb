@@ -70,7 +70,7 @@ class Dog
     sql = <<-SQL
     SELECT *
     FROM dogs
-    WHERE dogs.name = ?, dogs.breed = ?
+    WHERE dogs.name = ? AND dogs.breed = ?
     SQL
 
     binding.pry
