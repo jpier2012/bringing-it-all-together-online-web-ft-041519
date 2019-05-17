@@ -24,6 +24,8 @@ class Dog
     sql = <<-SQL
     DROP TABLE dogs IF EXISTS
     SQL
+
+    DB[:conn].execute(sql)
   end
 
 end
