@@ -33,9 +33,19 @@ class Dog
       INSERT INTO dogs (name, breed)
       VALUES (?, ?)
       SQL
+      
       DB[:conn].execute(sql, self.name, self.breed)
       @id = DB[:conn].execute('SELECT last_insert_rowid() FROM dogs')[0][0]
+      self
+    else
+      sql = <<-SQL
+      UPDATE dogs
+      SET dogs.name = ?, dogs.breed = ?
+      WHERE dogs.id = ?
+      SQL
 
+      DB[:conn].execute(sql, self.name, self.breed, self.id)
+    end
   end
 
 end
