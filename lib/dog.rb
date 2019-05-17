@@ -74,9 +74,7 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
-    self.all.find do |dog|
-
-    end
+    self.all.find { |dog| dog.name == name && dog.breed = breed }
   end
 
 end
