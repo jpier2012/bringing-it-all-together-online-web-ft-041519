@@ -99,4 +99,8 @@ class Dog
     end[0]
   end
 
+  def update
+
+  end
+
 end
