@@ -73,7 +73,6 @@ class Dog
     WHERE dogs.name = ? AND dogs.breed = ?
     SQL
 
-    binding.pry
     search = DB[:conn].execute(sql, name, breed)
     if search.empty?
       self.create(name: name, breed: breed)
