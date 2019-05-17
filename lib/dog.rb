@@ -75,7 +75,7 @@ class Dog
 
   def self.find_or_create_by(name:, breed:)
     find = self.all.find { |dog| dog.name == name && dog.breed = breed }
-    if find.empty?
+    if find.nil?
       self.create(name: name, breed: breed)
     else
       find
