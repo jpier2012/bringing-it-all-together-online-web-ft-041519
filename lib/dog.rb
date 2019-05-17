@@ -82,7 +82,7 @@ class Dog
     else
       search.map do |row|
         self.new(name: row[1], breed: row[2], id: row[0])
-      end
+      end[0]
     end
   end
 
