@@ -74,7 +74,7 @@ class Dog
     SQL
 
     search = DB[:conn].execute(sql, name, breed)
-
+    binding.pry
     if search.empty?
       self.create(name: name, breed: breed)
     else
